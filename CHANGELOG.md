@@ -1,3 +1,9 @@
+## Unreleased
+
+* macos/ios: fix `write()` failing with a `SecurityError` when the entry already
+  exists. The update query no longer carries the access control or the
+  authentication context. Not yet verified on a device.
+
 ## 6.0.0-dev.5
 
 * android: fix `minifyReleaseWithR8` failing in every app that ships a release
