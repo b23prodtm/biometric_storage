@@ -8,7 +8,8 @@
 PRODUCT_NAME = biometric_storage_example
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = design.codeux.biometricStorageExample
+//PRODUCT_BUNDLE_IDENTIFIER = design.codeux.biometricStorageExample
+PRODUCT_BUNDLE_IDENTIFIER = info.b23prodtm.biometricStorageExample
 
 // The copyright displayed in application information
 PRODUCT_COPYRIGHT = Copyright © 2026 design.codeux. All rights reserved.
@@ -16,5 +17,6 @@ PRODUCT_COPYRIGHT = Copyright © 2026 design.codeux. All rights reserved.
 // The keychain-access-groups entitlement resolves $(AppIdentifierPrefix) from
 // the signing team, so the Runner cannot be built with the project's default
 // ad-hoc identity.
-DEVELOPMENT_TEAM = 64ZPC769JY
+//DEVELOPMENT_TEAM = 64ZPC769JY
+DEVELOPMENT_TEAM = MDLZG8NQNK
 CODE_SIGN_IDENTITY = Apple Development
