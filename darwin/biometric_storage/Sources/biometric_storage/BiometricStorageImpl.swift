@@ -388,9 +388,14 @@ class BiometricStorageFile {
     var status = SecItemAdd(query as CFDictionary, nil)
     if (status == errSecDuplicateItem) {
       hpdebug("Value already exists. updating.")
-      let update = [kSecValueData as String: query[kSecValueData as String]]
-      query.removeValue(forKey: kSecValueData as String)
-      status = SecItemUpdate(query as CFDictionary, update as CFDictionary)
+      // Access control and the authentication context are not search
+      // attributes; passing them to SecItemUpdate fails with a SecurityError.
+      var updateQuery = query
+      updateQuery.removeValue(forKey: kSecValueData as String)
+      updateQuery.removeValue(forKey: kSecAttrAccessControl as String)
+      updateQuery.removeValue(forKey: kSecUseAuthenticationContext as String)
+      let update = [kSecValueData as String: query[kSecValueData as String] as Any]
+      status = SecItemUpdate(updateQuery as CFDictionary, update as CFDictionary)
     }
     guard status == errSecSuccess else {
       handleOSStatusError(status, result, "writing data")
